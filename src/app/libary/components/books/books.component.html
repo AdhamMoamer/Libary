@@ -1,0 +1,27 @@
+<h2>Library books</h2>
+<table class="table tabel-striped">
+
+    <thead>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Type</th>
+        <th scope="col">Author</th>
+        <th scope="col">Price</th>
+    </thead>
+    <tbody *ngIf="books">
+        <tr *ngFor="let book of books;index as i">
+            <td scope="row">{{i+1}}</td>
+            <td>{{book.name}}</td>
+            <td>{{book.type}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.price}}</td>
+            <td>
+                <i class="bi bi-pencil-square" style="color: green;" (click)="editBook(book)"></i>
+            </td>
+            <td>
+                <i class="bi bi-trash" (click)="deleteBook(book)" style="color: red;"></i>
+            </td>
+        </tr>
+    </tbody>
+
+</table>

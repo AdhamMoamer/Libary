@@ -1,0 +1,43 @@
+<div class="border-end mr-2">
+    <h4>Add books</h4>
+    <form #bookForm="ngForm" (submit)="addBook(bookForm)" class="pb-5">
+        <div class="form-group">
+            <label>Book Name</label>
+            <input class="form-control" name="name" #name="ngModel" [(ngModel)]="book.name" placeholder="Book name" required />
+        </div>
+        <div class="form-group">
+            <label>Type</label>
+            <select class="form-control" name="type" #name=ngModel [(ngModel)]="book.type">
+                <option value="Science">Science</option>
+                <option value="Programming">Programming</option>
+                <option value="Non Fiction">Non Fiction</option>
+                <option value="Biography">Biography</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Author</label>
+            <input class="form-control" name="author" #name="ngModel" [(ngModel)]="book.author" placeholder="Author" required />
+        </div>
+        <div class="form-group">
+            <label>Price</label>
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="bi bi-currency-dollar"></i>
+                </div>
+                <input class="form-control" name="price" #name="ngModel" [(ngModel)]="book.price" placeholder="Price" required>
+            </div>
+        </div>
+        <div class="from-group">
+            <div class="wrapper  float-right">
+                <div class="outer">
+                    <button type="submit" [disabled]="!bookForm.valid" [disabled]="bookForm.invalid"> <i class="bi bi-plus"></i>Add Book</button>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="form-group float-right">
+        <button type="submit" class="btn btn-success" [disabled]="!bookForm.valid" [disabled]="bookForm.invalid">
+         <i class="bi bi-plus"></i>Add Book</button>
+        </div> -->
+
+    </form>
+</div>

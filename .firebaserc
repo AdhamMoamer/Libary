@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "adhamfirstfirebase": {
+      "hosting": {
+        "Adham2": [
+          "adhamfirstfirebase"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "adhamfirstfirebase"
+  }
+}
