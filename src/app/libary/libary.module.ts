@@ -8,6 +8,15 @@ import { FormsModule } from '@angular/forms';
 import { EditModelComponent } from './components/edit-model/edit-model.component';
 import { LibaryRoutingModule } from './libary-routing.module';
 
+// Material Data tables
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatCardModule } from '@angular/material/card';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -16,8 +25,20 @@ import { LibaryRoutingModule } from './libary-routing.module';
     SearchComponent,
     LibaryHomeComponent,
     EditModelComponent,
-    
   ],
-  imports: [CommonModule, FormsModule,LibaryRoutingModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    LibaryRoutingModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatIconModule,
+    MatButtonModule,
+    MatProgressSpinnerModule,
+    MatCardModule,
+    MatSnackBarModule
+  
+  ],
 })
-export class LibaryModule {}
+export class LibaryModule { }

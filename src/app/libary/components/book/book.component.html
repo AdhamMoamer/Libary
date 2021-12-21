@@ -1,5 +1,5 @@
 <div class="border-end mr-2">
-    <h4>Add books</h4>
+    <h2>Add books</h2>
     <form #bookForm="ngForm" (submit)="addBook(bookForm)" class="pb-5">
         <div class="form-group">
             <label>Book Name</label>
@@ -8,6 +8,7 @@
         <div class="form-group">
             <label>Type</label>
             <select class="form-control" name="type" #name=ngModel [(ngModel)]="book.type">
+                <option value="" selected disabled hidden>Book type</option>
                 <option value="Science">Science</option>
                 <option value="Programming">Programming</option>
                 <option value="Non Fiction">Non Fiction</option>
@@ -30,7 +31,7 @@
         <div class="from-group">
             <div class="wrapper  float-right">
                 <div class="outer">
-                    <button type="submit" [disabled]="!bookForm.valid" [disabled]="bookForm.invalid"> <i class="bi bi-plus"></i>Add Book</button>
+                    <button type="submit" [disabled]="!bookForm.valid"> <i class="bi bi-plus"></i>Add Book</button>
                 </div>
             </div>
         </div>
