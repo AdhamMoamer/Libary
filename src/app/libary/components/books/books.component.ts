@@ -8,6 +8,7 @@ import { EditModelComponent } from '../edit-model/edit-model.component';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { BookComponent } from '../book/book.component';
 
 @Component({
   selector: 'app-books',
@@ -35,6 +36,13 @@ export class BooksComponent implements AfterViewInit {
         };
         if (this.paginator && this.sort) { this.dataSource.paginator = this.paginator; this.dataSource.sort = this.sort; };
       }, error: (error) => { this.isLoading = true; }
+    });
+  }
+  addBook(){
+    const modelRef = this.model.open(BookComponent, {
+      size: 'lg',
+      centered: true,
+      windowClass: 'dark-model'
     });
   }
   deleteBook(book: IBook) {
