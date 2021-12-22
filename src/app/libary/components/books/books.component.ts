@@ -1,6 +1,6 @@
 
 
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IBook } from '../../models/book.model';
 import { BookService } from '../../services/book.service';
@@ -12,29 +12,28 @@ import { MatPaginator } from '@angular/material/paginator';
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
-  styleUrls:['./books.component.css']
+  styleUrls: ['./books.component.css']
 })
-export class BooksComponent implements OnInit, AfterViewInit {
+export class BooksComponent implements AfterViewInit {
   books: IBook[] = [];
 
-  displayedColumns: string[] = ['id', 'name', 'type', 'author', 'price', 'actions'];
+  displayedColumns: string[] = ['id', 'name', 'type', 'author', 'price', 'update', 'delete'];
   isLoading = true;
   constructor(private bookService: BookService, private model: NgbModal) { }
   @ViewChild(MatSort) sort: MatSort = new MatSort();
   @ViewChild(MatPaginator) paginator?: MatPaginator;
-  listData: MatTableDataSource<IBook> = new MatTableDataSource<IBook>();
-
-  ngOnInit() {
-
-  }
+  dataSource: MatTableDataSource<IBook> = new MatTableDataSource<IBook>();
 
   ngAfterViewInit(): void {
     this.bookService.getBooks().subscribe({
       next: (res) => {
         this.books = res;
         this.isLoading = false;
-        this.listData = new MatTableDataSource(res);
-        if (this.paginator && this.sort) { this.listData.paginator = this.paginator; this.listData.sort = this.sort; };
+        this.dataSource = new MatTableDataSource(res);
+        this.dataSource.filterPredicate = function(data, filter: string): boolean {
+          return data.name.toLowerCase().includes(filter) || data.type.toLowerCase().includes(filter) || data.author.toString() === filter;
+        };
+        if (this.paginator && this.sort) { this.dataSource.paginator = this.paginator; this.dataSource.sort = this.sort; };
       }, error: (error) => { this.isLoading = true; }
     });
   }
@@ -53,6 +52,16 @@ export class BooksComponent implements OnInit, AfterViewInit {
     });
     //to pass book id to edit componenet 
     modelRef.componentInstance.id = book.id;
+  }
+  applyFilter(event: any) {
+    let filterValue = event?.target.value.toString()
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
+  }
+  public doFilter = (event: any) => {
+    //Filter all the table 
+    // this.dataSource.filter =  event.target.value.trim().toLocaleLowerCase();
   }
 }
 
