@@ -30,9 +30,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     CommonModule,
     FormsModule,
     LibaryRoutingModule,
-    MatTableModule,
-    MatSortModule,
     MatPaginatorModule,
+    MatSortModule,
+    MatTableModule,
+ 
+    
     MatIconModule,
     MatButtonModule,
     MatProgressSpinnerModule,
