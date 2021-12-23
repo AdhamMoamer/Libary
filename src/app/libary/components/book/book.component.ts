@@ -14,7 +14,6 @@ export class BookComponent implements OnInit {
 
   ngOnInit(): void {}
   addBook(bookForm: NgForm) {
-    debugger;
     this.bookService.addBook(bookForm.value).then(() => {
       bookForm.reset();
     });

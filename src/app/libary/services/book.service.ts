@@ -13,11 +13,11 @@ export class BookService {
 
   constructor(private fireStore: Firestore) { }
 
-  getBooks(){
+  getBooks():Observable<IBook[]>{
     const booksRef= collection(this.fireStore,'books');
     return collectionData(booksRef,{idField:'id'}) as Observable<IBook[]>;
   }
-  getBook(id:string){
+  getBook(id:string): Observable<IBook>{
     const bookref = doc(this.fireStore,`books/${id}`);
     return docData(bookref,{idField:'id'}) as Observable<IBook>;
   }

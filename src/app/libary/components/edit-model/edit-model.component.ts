@@ -26,7 +26,6 @@ export class EditModelComponent implements OnInit {
   updateBook(){
     this.bookService.updateBook(this.book).then(() => {
       this.activeModal.close();
-      console.log('Data add successfully');
     })
   }
   setPrice(book: IBook, price: number) {

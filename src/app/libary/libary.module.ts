@@ -16,12 +16,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ConfirmComponent } from './components/confirm/confirm.component';
 
 
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -30,6 +30,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     SearchComponent,
     LibaryHomeComponent,
     EditModelComponent,
+    ConfirmComponent,
   ],
   imports: [
     CommonModule,
@@ -42,12 +43,12 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatButtonModule,
     MatProgressSpinnerModule,
     MatCardModule,
-    MatSnackBarModule,
     MatInputModule,
     MatFormFieldModule,
+    MatDialogModule,
 
-    FlexLayoutModule
-  
   ],
+
+  
 })
 export class LibaryModule { }
