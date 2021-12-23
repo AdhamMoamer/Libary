@@ -36,7 +36,7 @@ export class BooksComponent implements AfterViewInit {
         this.isLoading = false;
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.filterPredicate = function (data, filter: string): boolean {
-          return data.name.toLowerCase().includes(filter) || data.type.toLowerCase().includes(filter) || data.author.toString() === filter;
+          return data.name.toLowerCase().includes(filter) || data.type.toLowerCase().includes(filter) || data.author.toLowerCase().includes(filter);
         };
         if (this.paginator && this.sort) { this.dataSource.paginator = this.paginator; this.dataSource.sort = this.sort; };
       }, error: (error) => { this.isLoading = true; }
