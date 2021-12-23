@@ -74,7 +74,8 @@ export class BooksComponent implements AfterViewInit {
   openDeleteDialog(book: IBook) {
 
     const dialogRef = this.dialog.open(ConfirmComponent, {
-      data: { message: "Are you sure that you want to delete book " + book.name + " ?" }});
+      data: { message: "Are you sure that you want to delete book " + book.name + " ?" }}
+      );
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {

@@ -20,7 +20,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ConfirmComponent } from './components/confirm/confirm.component';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -46,6 +46,7 @@ import { ConfirmComponent } from './components/confirm/confirm.component';
     MatInputModule,
     MatFormFieldModule,
     MatDialogModule,
+    MatSnackBarModule
 
   ],
 

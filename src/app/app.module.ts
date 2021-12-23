@@ -30,7 +30,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //components
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +52,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     provideStorage(() => getStorage()),
     NgbModule,
     BrowserAnimationsModule,
+    MatSnackBarModule
   ],
   providers: [ScreenTrackingService, UserTrackingService],
   bootstrap: [AppComponent],
